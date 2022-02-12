@@ -26,3 +26,7 @@ Route::get('/data',[
     userController::class,"data"
 ]);
 
+Route::get('/delete/{id}',[
+    userController::class,"delete"
+]);
+

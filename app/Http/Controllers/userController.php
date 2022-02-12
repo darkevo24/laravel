@@ -6,6 +6,8 @@ use App\Models\message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\map;
+
 class userController extends Controller
 {
     function index(){
@@ -23,6 +25,11 @@ class userController extends Controller
             "password" => $request->password
         ]);
 
+        return redirect("/");
+    }
+    function delete($id){
+        $data = message::find($id);
+        $data->delete();
         return redirect("/");
     }
 }

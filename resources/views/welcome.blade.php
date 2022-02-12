@@ -23,23 +23,28 @@
     <body class="antialiased">
         @extends("master")
         @section("content")
+        
     <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th scope="col">Email</th>
       <th scope="col">Password</th>
+      <th scope="col">Operation</th>
     </tr>
   </thead>
   <tbody>
       @foreach($data as $i)
       <tr>
+        <td>{{$i->id}}</td>
   <td>{{$i->email}}</td>
   <td>{{$i->password}}</td>
+  <td><a href={{"/delete/".$i->id}} >Delete</a></td>
     </tr>
     @endforeach
   </tbody>
 </table>
-<button  type="button" class="btn btn-primary"><a href="login">Click</a></button>
+<button  type="button" class="btn btn-primary"><a href="login">Insert</a></button>
 @endsection
     </body>
 </html>
