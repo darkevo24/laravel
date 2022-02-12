@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\message;
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class userController extends Controller
+{
+    function index(){
+        $data = message::all();
+        return view ("welcome",compact("data"));
+    }
+
+    function login(Request $request){
+        return view("login");
+    }
+
+    function data(Request $request){
+        message::create([
+            "email" => $request->email,
+            "password" => $request->password
+        ]);
+
+        return redirect("/");
+    }
+}
